@@ -99,6 +99,7 @@ class SortingRobot:
         # Fill this out
 
         # set light on to signify the start of the sort
+        # this is used as the condition for the while loop
         # swap item so None is at start and robot has a value
         self.set_light_on()
         self.swap_item()

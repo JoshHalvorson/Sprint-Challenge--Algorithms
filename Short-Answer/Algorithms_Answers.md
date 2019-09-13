@@ -15,7 +15,7 @@ amount of operations pretty small in comparison.
 
 c)
 O(n), linear.
-Ends up running n times because in the recursive call and base case mean it runs until bunnies = 0
+Runs n times due to recursive call setting bunnies - 1 each time, which means it will stop when bunnies hits 0. Which ends up being n times
 
 ## Exercise II
 
