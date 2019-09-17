@@ -97,8 +97,38 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
 
+        # set light on to signify the start of the sort
+        # this is used as the condition for the while loop
+        # swap item so None is at start and robot has a value
+        self.set_light_on()
+        self.swap_item()
+        while self.light_is_on():
+            # while the robot can move right, compare the current item with item in list
+            # if the held items value is less, swap the item and move right
+            # otherwise keep moving right
+            while self.can_move_right():
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.move_right()
+                else:
+                    self.move_right()
+            # if at the end of the list and if item in list is None
+            # swap the item, putting a value in the list and None in the robots 'hands'
+            # then shut the light off, signifying the end of the sort
+            if self.can_move_right() == False and self.compare_item() == None:
+                self.swap_item()
+                self.set_light_off()
+            # else if list is not done being sorted and the robot can move left
+            # find where None is in the list, swap the item
+            # move right and swap again moving none along towards the end of the list so the conditional
+            # above can pass eventually
+            else:
+                while self.move_left():
+                    if self.compare_item() == None:
+                        self.swap_item()
+                        self.move_right()
+                        self.swap_item()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
